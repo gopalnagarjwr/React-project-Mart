@@ -1,0 +1,48 @@
+.Hlink a{
+    text-decoration: none;
+    color: black;
+    font-size:small;
+    margin-right: 10px;
+}
+.Hlink a:hover{
+    border-bottom: solid #1abc9c 2px;
+}
+.Hlink i{
+    font-size:medium;
+}
+.logo i{
+    font-size: 40px;
+}
+.logo a{
+    text-decoration: none;
+    font-size: large;
+    color: black;
+   
+}
+.logo div:hover{
+    color: #1abc9c;
+    cursor: pointer;
+}
+.logo a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 1px;
+    background: #000;
+    transition: width .4s ease-in;
+  }
+  
+  .logo a:hover::after {
+    width: 100%;
+  }
+  .hp i{
+    color:  #27ae60;
+    font-size: 60px;
+    cursor: pointer;
+  }
+  .hp{
+    background: #bdc3c7;
+    color: #2c3e50;
+    border-radius: 10px;
+  }
+ 

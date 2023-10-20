@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+.im{
+  height: 400px;
+}
+.ft a{
+  text-decoration: none;
+   
+}
+.ft i:hover{
+    color: #61dafb;
+    cursor: pointer;
+}
+ 
+ 
+ 
+ 
