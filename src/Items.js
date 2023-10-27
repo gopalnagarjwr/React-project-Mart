@@ -4,8 +4,8 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import "./App.css";
 import './items.css';
-import ViewAll from "./ViewAll";
-import { Link } from "react-router-dom";
+import ItemDetails from "./ItemDetails";
+import { Link, useSearchParams } from "react-router-dom";
 
 // Define custom arrow components outside of the Items component
 const SamplePrevArrow = (props) => {
@@ -34,6 +34,9 @@ function Items() {
         });
       });
   }, []);
+
+ 
+
   const settings = {
     infinite: true,
     speed: 1000,
@@ -53,9 +56,11 @@ function Items() {
       </div>
       <div className="row">
         <Slider {...settings}>
+        
           {data.map((item, index) => (
             <div className="col-md-3 m-md-3 p-1" key={index}>
-              <img src={item.img} className="w-75 m-auto" alt={item.desc} />
+            <Link to={`/viewall/detail/${index}`}  className='text-decoration-none text-black'>
+              <img src={item.img} className="w-75 m-auto" />
               <div>
                 <p className="h6 text-danger">Price : {item.p}</p>
                 <p className="secundery d-flex m-0">
@@ -63,6 +68,7 @@ function Items() {
                 </p>
                 <p className="h6">{item.desc}</p>
               </div>
+            </Link>
             </div>
           ))}
         </Slider>

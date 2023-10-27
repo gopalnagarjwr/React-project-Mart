@@ -3,7 +3,7 @@ import './App.css';
 import data from './utils/Data';
 function Slider() {
   return (
-    <div  className='mb-3'>
+    <div  className='mb-3 position-relative'>
     <Carousel data-bs-theme="dark">
     {
       data.map((item)=>

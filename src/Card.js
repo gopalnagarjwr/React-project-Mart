@@ -3,6 +3,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./App.css";
 import './items.css';
+import { Link } from "react-router-dom";
 
 function Card() {
     const [data, setData] = useState([]);
@@ -25,7 +26,9 @@ function Card() {
                 <div className="row bg-white  px-5">
 
                     {data.map((item, index) => (
+                       
                         <div className="col-md-3 py-3" key={index}>
+                        <Link to={`/viewall/detail/${index}`} className='text-decoration-none text-black' >
                             <div className=" bg-dark rounded">
                                 <div className="w-75 m-auto">
                                     <img src="https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1664419033/Croma%20Assets/Computers%20Peripherals/Laptop/Images/257390_0_uih5kd.png?tr=w-640" className="w-100" />
@@ -35,7 +38,9 @@ function Card() {
                                 <label className="text-white mx-2"><i class="fa fa-star-o" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i>
                                 <i class="fa fa-star-o" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i></label>
                             </div>
+                            </Link>
                         </div>
+                      
                     ))}
 
                 </div>

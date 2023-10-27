@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-const ViewAll = () => {
+import { Link } from "react-router-dom";
+const ViewAll = (props) => {
+   
   const [data, setData] = useState([]);
   useEffect(() => {
     fetch("http://localhost:3000/profile")
@@ -17,7 +19,9 @@ const ViewAll = () => {
                 </div>
         <div className='row'>
           {data.map((item, index) => (
-            <div className="col-md-3 p-1" key={index}>
+           
+            <div className="col-md-3 p-1" key={index} >
+            <Link to={`/viewall/detail/${index}`} className='text-decoration-none text-black' >
               <img src={item.img} className="w-75 m-auto" alt={item.desc} />
               <div>
                 <p className="h6 text-danger">Price : {item.p}</p>
@@ -26,6 +30,7 @@ const ViewAll = () => {
                 </p>
                 <p className="h6">{item.desc}</p>
               </div>
+              </Link>
             </div>
           ))}
         </div>

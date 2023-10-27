@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import "./App.css";
 import './items.css';
+import { Link } from "react-router-dom";
 
 // Define custom arrow components outside of the Items component
 const SamplePrevArrow = (props) => {
@@ -24,16 +25,18 @@ const SampleNextArrow = (props) => {
   );
 };
 
-function Brands() {
+function Brands(props) {
+  let ap=props;
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/Brands")
-      .then((response) => {
-        response.json().then((da) => {
-          setData(da);
-        });
+    fetch("http://localhost:3000/brandItem")
+    .then((response) => {
+      response.json().then((da) => {
+        setData(da);
       });
+    });
   }, []);
+ 
 
   const settings = {
     infinite: true,
@@ -53,12 +56,15 @@ function Brands() {
       <div className="row ">
         <Slider {...settings}>
           {data.map((item, index) => (
-            <div className="col-md-3 my-3" key={index}>
-              <div className=" w-75 m-auto">
-              <img src={item.img} className="rounded-circle w-100" alt={item.desc} />
+            <div className="col-md-5 my-5 p-0" key={index}>
+             <Link to='' className="text-center h5 text-black text-decoration-none"> 
+              <div className="w-100 m-auto">
+              <img src={item.img} className="rounded-circle w-75 m-auto" alt={item.desc} />
               </div>
-              <p className="text-white text-center">ItemName</p>
+              <p >{item.name}</p>
+              </Link>
             </div>
+           
           ))}
         </Slider>
         </div>

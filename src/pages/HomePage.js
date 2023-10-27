@@ -7,20 +7,23 @@ import Brands from '../Brands';
 import Card  from '../Card';
 import SpecialCard from '../SpecialCard';
 import Footer from '../Footer';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 function HomePage() {
+ 
   return (
     <div>
      <Header />  
      <Slider />
-     <Brands/>
+     <Brands />
      <Items/>
-     <Brands/>
+     <Brands  />
      <div className='mt-5'>
         <Items/>
      </div>
      <Card />
      <SpecialCard />
-     <Brands/>
+     <Brands />
      <Footer />
 
     </div>
