@@ -38,15 +38,16 @@ const Header = () => {
           }
         </div>
         <div className="d-flex align-items-center">
-          <a className="link-dark me-3" href="#">
-            <i class="fa fa-shopping-cart h4" aria-hidden="true"></i>
-          </a>
+          <Link to='/AddItem'>
+            <i class="fa fa-shopping-cart h4 text-body" aria-hidden="true"></i>
+            </Link>
+        
           <Dropdown  >
             <Dropdown.Toggle variant="info" size="lg" >
                {user && user.name[0]}
             </Dropdown.Toggle>
             <Dropdown.Menu>
-              <Dropdown.Item href="#/action-1">Profile</Dropdown.Item>
+              <Dropdown.Item><Link to='/Profile' className='text-body text-decoration-none'>Profile</Link></Dropdown.Item>
               <Dropdown.Item  onClick={()=>Out()}>Log Out</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>

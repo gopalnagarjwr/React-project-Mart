@@ -15,7 +15,7 @@ function HomePage() {
     <div>
      <Header />  
      <Slider />
-     <Brands />
+     <Brands c={"b"} />
      <Items/>
      <Brands  />
      <div className='mt-5'>

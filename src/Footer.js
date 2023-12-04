@@ -52,7 +52,7 @@ export default function Footer() {
                             <ul className='list-unstyled mb-0 ft'>
                                 <li>
                                     <a href='#!' className='text-white '>
-                                        About Croma
+                                        About Mart
                                     </a>
                                 </li>
                                 <li>

@@ -11,8 +11,8 @@ const SamplePrevArrow = (props) => {
   const { onClick } = props;
   return (
     <div className="arrow left" onClick={onClick}>
-    {"<"}
-  </div>
+      {"<"}
+    </div>
   );
 };
 
@@ -26,17 +26,29 @@ const SampleNextArrow = (props) => {
 };
 
 function Brands(props) {
-  let ap=props;
+  let c = props.c;
   const [data, setData] = useState([]);
+  const [check, setcheck] = useState(false);
   useEffect(() => {
-    fetch("http://localhost:3000/brandItem")
-    .then((response) => {
-      response.json().then((da) => {
-        setData(da);
+    if (c == "b") {
+      fetch("http://localhost:3000/brandItem")
+        .then((response) => {
+          response.json().then((da) => {
+            setData(da);
+            setcheck(true);
+          });
+        });
+    }else{
+      fetch("http://localhost:3000/Brands")
+      .then((response) => {
+        response.json().then((da) => {
+          setData(da);
+          setcheck(false);
+        });
       });
-    });
+    }
   }, []);
- 
+
 
   const settings = {
     infinite: true,
@@ -50,23 +62,23 @@ function Brands(props) {
   return (
     <div className="container-fluid">
       <div className="container">
-      <div className="row ">
-        <div className="col h5 pt-5">Top Brands</div>
-      </div>
-      <div className="row ">
-        <Slider {...settings}>
-          {data.map((item, index) => (
-            <div className="col-md-5 my-5 p-0" key={index}>
-             <Link to='' className="text-center h5 text-black text-decoration-none"> 
-              <div className="w-100 m-auto">
-              <img src={item.img} className="rounded-circle w-75 m-auto" alt={item.desc} />
+        <div className="row ">
+          <div className="col h5 pt-5">Top Brands</div>
+        </div>
+        <div className="row ">
+          <Slider {...settings}>
+            {data.map((item, index) => (
+              <div className="col-md-5 my-5 p-0" key={index}>
+                <Link to='' className="text-center h5 text-black text-decoration-none">
+                  <div className="w-100 m-auto">
+                    <img src={item.img} className="rounded-circle w-75 m-auto" alt={item.desc} />
+                  </div>
+                  <p >{check?item.name:null}</p>
+                </Link>
               </div>
-              <p >{item.name}</p>
-              </Link>
-            </div>
-           
-          ))}
-        </Slider>
+
+            ))}
+          </Slider>
         </div>
       </div>
     </div>
